@@ -1,0 +1,22 @@
+{
+  "name": "tunstrom",
+  "version": "0.0.1",
+  "description": "New contact page for me",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonTomasso/tunstrom.git"
+  },
+  "author": "Tomas Tunström",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/DonTomasso/tunstrom/issues"
+  },
+  "homepage": "http://dontomasso.com",
+  "devDependencies": {
+    "html-minifier": "3.3.0"
+  }
+}
