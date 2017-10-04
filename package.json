@@ -22,7 +22,7 @@
     "url": "https://github.com/DonTomasso/tunstrom/issues"
   },
   "homepage": "http://dontomasso.com",
-  "devDependencies": {
+  "dependencies": {
     "html-minifier": "3.5.5"
   }
 }
