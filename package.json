@@ -8,7 +8,7 @@
     "createBuildDir": "mkdir -p build/amp",
     "minifyIndex": "html-minifier src/index.html --collapse-inline-tag-whitespace --minify-css --minify-js --use-short-doctype --collapse-whitespace -o build/index.html",
     "minifyAmp": "html-minifier src/amp/index.html --collapse-inline-tag-whitespace --minify-css --minify-js --use-short-doctype --collapse-whitespace -o build/amp/index.html",
-    "copyAssets": "cp /src/{*.png,*.xml,*.ico,*.svg,google*.html,*.key,*.pem,*.txt} build",
+    "copyAssets": "cp ./src/*.png ./src/*.xml ./src/*.ico ./src/*.svg ./src/google*.html ./src/*.key ./src/*.pem ./src/*.txt ./build",
     "build": "npm run clean && npm run createBuildDir && npm run minifyAmp && npm run minifyIndex && npm run copyAssets"
   },
   "repository": {
