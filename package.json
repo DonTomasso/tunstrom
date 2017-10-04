@@ -1,0 +1,28 @@
+{
+  "name": "tunstrom",
+  "version": "0.0.1",
+  "description": "New contact page for me",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf build",
+    "createBuildDir": "mkdir -p build/amp",
+    "minifyIndex": "html-minifier src/index.html --collapse-inline-tag-whitespace --minify-css --minify-js --use-short-doctype --collapse-whitespace -o build/index.html",
+    "minifyAmp": "html-minifier src/amp/index.html --collapse-inline-tag-whitespace --minify-css --minify-js --use-short-doctype --collapse-whitespace -o build/amp/index.html",
+    "copyAssets": "cp src/{*.png,*.xml,*.ico,*.svg,google*.html,*.key,*.pem,*.txt} build",
+    "build": "npm run clean && npm run createBuildDir && npm run minifyAmp && npm run minifyIndex && npm run copyAssets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonTomasso/tunstrom.git"
+  },
+  "author": "Tomas Tunström",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/DonTomasso/tunstrom/issues"
+  },
+  "homepage": "http://dontomasso.com",
+  "devDependencies": {
+    "html-minifier": "3.5.5"
+  }
+}
