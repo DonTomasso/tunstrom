@@ -33,14 +33,39 @@
             line-height: 1.7rem;
             font-size: 1.1rem;
         }
+        @keyframes openCurtenSmall {
+            0% {
+                clip-path: circle(0px at center);
+            }
+            20% {
+                clip-path: circle(0px at center);
+            }
+            100% {
+                clip-path: circle(540px at center -60px);
+            }
+        }
+        @keyframes openCurtenLarge {
+            0% {
+                clip-path: circle(0px at center);
+            }
+            20% {
+                clip-path: circle(0px at center);
+            }
+            100% {
+                clip-path: circle(1040px at center -500px);
+            }
+        }
         .header {
             background: #f1f1f1;
             padding: 1rem 0;
             margin-bottom: 1rem;
             font-family: 'Indie Flower', cursive;
             color: #E96E14;
-            text-align: center; 
+            text-align: center;
+            animation: openCurtenSmall 2.5s linear;
+            clip-path: circle(540px at center -60px);
         }
+
             .hello {
                 font-size: 3rem;
             }
@@ -108,6 +133,8 @@
             .header {
                 padding: 3rem 0;
                 margin-bottom: 3rem;
+                animation: openCurtenLarge 2.5s linear;
+                clip-path: circle(1040px at center -500px);
             }
         }
     </style>
