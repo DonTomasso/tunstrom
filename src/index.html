@@ -272,11 +272,11 @@
         }
 
         function setTranslate(elementId, x, y) {
-            document.getElementById(elementId).style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            document.getElementById(elementId).style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
         }
 
         function setRotate(elementId, x, y) {
-            document.getElementById(elementId).style.transform = `rotateX(${-x}deg) rotateZ(${-x/5}deg)`;
+            document.getElementById(elementId).style.transform = 'rotateX(' + (-x) + 'deg) rotateZ(' + (-x/5) + 'deg)';
         }
 
         var mouth = {
@@ -346,7 +346,7 @@
             });
         });
         
-        setInterval(() => { 
+        setInterval(function () { 
             setTranslate('right-eye', x, y);
             setTranslate('left-eye', x, y);
             setRotate('dontomasso', x, y);
