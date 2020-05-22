@@ -257,16 +257,6 @@
 
       
       (function() {
-        document.body.addEventListener('mousemove', function (e) {
-          var positions = document.body.getBoundingClientRect();
-          var x = calcAx(e.x, positions.width);
-          var y = calcAx(e.y, positions.height);
-
-          setTranslate('right-eye', x, y);
-          setTranslate('left-eye', x, y);
-          setRotate('dontomasso', x, y);
-        });
-
         function calcAx(currPosition, size) {
           var result = Math.round((currPosition-(size/2))/15);
           var maxValue = 20;
@@ -282,11 +272,11 @@
         }
 
         function setTranslate(elementId, x, y) {
-          document.getElementById(elementId).setAttribute('style', 'transform: translate3d(' + x + 'px, ' + y + 'px,0);');
+            document.getElementById(elementId).style.transform = `translate3d(${x}px, ${y}px, 0)`;
         }
 
         function setRotate(elementId, x, y) {
-          document.getElementById(elementId).setAttribute('style', 'transform: rotateX(' + (-x) + 'deg) rotateZ(' + (-x/5) + 'deg);');
+            document.getElementById(elementId).style.transform = `rotateX(${-x}deg) rotateZ(${-x/5}deg)`;
         }
 
         var mouth = {
@@ -320,14 +310,27 @@
             },
         };
 
+        
+        
+        var x = 0;
+        var y = 0;
+        var isOpenOrClose = 'close';
+
         function setMouth(openOrClose) {
+            isOpenOrClose = openOrClose;
             Object.keys(mouth).forEach(function (id) {
                 Object.keys(mouth[id][openOrClose]).forEach(function (key) {
                     document.getElementById(id).setAttribute(key, mouth[id][openOrClose][key]);    
                 });
             });
         }
-        
+
+        document.body.addEventListener('mousemove', function (e) {
+          var positions = document.body.getBoundingClientRect();
+          x = calcAx(e.x, positions.width);
+          y = calcAx(e.y, positions.height);
+        });
+
         document.body.addEventListener('mousedown', function (e) {
             setMouth('open');
         });
@@ -342,7 +345,14 @@
                 setMouth('close');
             });
         });
-        setMouth('close');
+        
+        setInterval(() => { 
+            setTranslate('right-eye', x, y);
+            setTranslate('left-eye', x, y);
+            setRotate('dontomasso', x, y);
+            setMouth(isOpenOrClose);
+        }, 30);
+
       })();
 	</script>
 </body>
